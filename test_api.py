@@ -28,11 +28,11 @@ class TestApi(unittest.TestCase):
 
     def test_predict_from_id_client_when_id_client_does_exist(self):
         # Given 
-        existent_id_client = 456251
+        existent_id_client = 405321
         # When        
         computed_result = predict_from_id_client(existent_id_client)
         # Then
-        expected_result = 0.39342345
+        expected_result = 0.3687148230672859
         assert expected_result-computed_result < 0.001
         print(f"Le resultat prédict pour {existent_id_client} est bon") 
     
@@ -48,23 +48,23 @@ class TestApi(unittest.TestCase):
     
     def test_info_client_when_id_does_not_exist(self):
         # Given 
-        existent_id_client = 456251
+        existent_id_client = 405321
         # When        
         computed_result = liste_client_base_client(existent_id_client)
         # Then
         expected_result = {
-            'AMT_CREDIT': {456251: 254700.0},
-            'AMT_ANNUITY': {456251: 27558.0},
-            'AMT_GOODS_PRICE': {456251: 225000.0},
-            'DAYS_BIRTH': {456251: -9327},
-            'CNT_CHILDREN': {456251: 0},
-            'DAYS_EMPLOYED': {456251: -236.0},
-            'NAME_EDUCATION_TYPE': {456251: 'Secondary / secondary special'},
-            'NAME_CONTRACT_TYPE': {456251: 'Cash loans'},
-            'NAME_FAMILY_STATUS': {456251: 'Separated'},
-            'NAME_HOUSING_TYPE': {456251: 'With parents'},
-            'NAME_INCOME_TYPE': {456251: 'Working'},
-            'CODE_GENDER': {456251: 'M'}
+            'AMT_CREDIT': {405321: 247500.0},
+            'AMT_ANNUITY': {405321: 9814.5},
+            'AMT_GOODS_PRICE': {405321: 247500.0},
+            'DAYS_BIRTH': {405321: -10916},
+            'CNT_CHILDREN': {405321: 0},
+            'DAYS_EMPLOYED': {405321: -810.0},
+            'NAME_EDUCATION_TYPE': {405321: 'Higher education'},
+            'NAME_CONTRACT_TYPE': {405321: 'Cash loans'},
+            'NAME_FAMILY_STATUS': {405321: 'Married'},
+            'NAME_HOUSING_TYPE': {405321: 'House / apartment'},
+            'NAME_INCOME_TYPE': {405321: 'State servant'},
+            'CODE_GENDER': {405321: 'F'}
         }
         self.assertEqual(computed_result, expected_result)
         print(f"Le resultat général pour {existent_id_client} est correct")
