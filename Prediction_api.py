@@ -9,6 +9,7 @@ from functools import lru_cache
 # Import model 
 loaded_model = joblib.load('./best_Random Forest_2024-10-11.joblib')
 shap_values_global = joblib.load('./SHAP/shap_values.joblib')
+scaler = joblib.load('./SCALER/scaler.joblib')
 
 @lru_cache(maxsize=1)
 def load_shap_values():
@@ -18,6 +19,8 @@ def load_shap_values():
 csv_path = './X_test_MAJ.csv'
 df_api= pd.read_csv(csv_path, index_col="SK_ID_CURR")
 df_api.index = df_api.index.astype(int)
+columns_to_scale = [col for col in df_api.columns if col not in ['TARGET', 'SK_ID_CURR']]
+df_api[columns_to_scale] = scaler.transform(df_api[columns_to_scale])
 
 # Base_client import
 csv_path_base_client = './Base_client.csv'
