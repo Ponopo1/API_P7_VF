@@ -27,7 +27,7 @@ csv_path_base_client = './Base_client.csv'
 Base_client= pd.read_csv(csv_path_base_client, index_col='SK_ID_CURR')
 Base_client.index = Base_client.index.astype(int)
 
-explainer = shap.TreeExplainer(loaded_model)
+explainer = shap.Explainer(loaded_model,df_api)
 
 # Instance API
 app = FastAPI()
