@@ -27,7 +27,11 @@ csv_path_base_client = './Base_client.csv'
 Base_client= pd.read_csv(csv_path_base_client, index_col='SK_ID_CURR')
 Base_client.index = Base_client.index.astype(int)
 
-explainer = shap.Explainer(loaded_model,df_api)
+
+#Plus de rapidité 
+df_api_shap = df_api.sample(frac=0.10)
+df_api_shap
+explainer = shap.Explainer(loaded_model,df_api_shap)
 
 # Instance API
 app = FastAPI()
