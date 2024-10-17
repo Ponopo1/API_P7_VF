@@ -117,7 +117,7 @@ def shap_individual(ID_CLIENT :int) :
    # Shap_values individue
    shap_values_ind = explainer.shap_values(observation)
    # Select SHAP values for the first output 
-   shap_values_class_1_ind = shap_values_ind[..., 1] 
+   shap_values_class_1_ind = shap_values_ind 
    shap_values_class_1_ind_list = shap_values_class_1_ind.tolist()
    return {
         "shap_values_class_1": shap_values_class_1_ind_list,
