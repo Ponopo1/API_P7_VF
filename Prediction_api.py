@@ -104,13 +104,13 @@ def predict(id_client) :
 @app.get("/SHAP_GLOBAL")
 def shap_global():
    importances = loaded_model.feature_importances_
-   std = np.std([tree.feature_importances_ for tree in loaded_model.estimators_], axis=0)
+   #std = np.std([tree.feature_importances_ for tree in loaded_model.estimators_], axis=0)
    df_api_columns = df_api.columns.tolist()
 
    # Convertissez les importances en un dictionnaire
    return {'features': df_api_columns,
-      'importances': importances.tolist(),
-      'std_dev': std.tolist()}   
+      'importances': importances.tolist()} 
+      #'std_dev': std.tolist()}   
 
 @app.get("/shap_individual")
 def shap_individual(ID_CLIENT :int) :
