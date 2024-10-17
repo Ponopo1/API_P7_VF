@@ -7,7 +7,7 @@ import shap
 from functools import lru_cache
 
 # Import model 
-loaded_model = joblib.load('./best_Random Forest_2024-10-11.joblib')
+loaded_model = joblib.load('./best_Gradient Boosting_2024-10-17.joblib')
 shap_values_global = joblib.load('./SHAP/shap_values.joblib')
 scaler = joblib.load('./SCALER/scaler.joblib')
 

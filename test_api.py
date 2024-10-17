@@ -32,7 +32,7 @@ class TestApi(unittest.TestCase):
         # When        
         computed_result = predict_from_id_client(existent_id_client)
         # Then
-        expected_result = 0.31885888421360997
+        expected_result = 0.16238979859806946
         assert expected_result-computed_result < 0.001
         print(f"Le resultat prédict pour {existent_id_client} est bon") 
     
